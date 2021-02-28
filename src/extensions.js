@@ -8,5 +8,4 @@ function extendClass (base, extra) {
 
 const ExtendsSpawn = require('./ExtendsSpawn')
 
-// eslint-disable-next-line no-undef
 extendClass(Spawn, ExtendsSpawn)
