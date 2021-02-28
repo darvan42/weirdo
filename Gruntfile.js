@@ -3,14 +3,13 @@
  * @param grunt {IGrunt}
  */
 module.exports = function (grunt) {
+  // Import credentials from config file
+  const config = require('./screeps_credentials.json')
 
-  //Import credentials from config file
-  let config = require('./screeps_credentials.json')
-
-  //Get config from parameters or use options from file
-  let branch = grunt.option('branch') || config.branch
-  let email = grunt.option('email') || config.email
-  let token = grunt.option('token') || config.token
+  // Get config from parameters or use options from file
+  const branch = grunt.option('branch') || config.branch
+  const email = grunt.option('email') || config.email
+  const token = grunt.option('token') || config.token
 
   grunt.loadNpmTasks('grunt-screeps')
 
