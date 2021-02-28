@@ -1,6 +1,8 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-<br><br>
-![Logo](./assets/tentacles-skull.svg)
+<br>
+
+![logo](assets/tentacles-skull.png)
+
 _"[Tentacle scull icon](https://game-icons.net/1x1/lorc/tentacles-skull.html)"
 by [Lorc](https://lorcblog.blogspot.com/)
 is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) 
@@ -9,6 +11,9 @@ is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 # Weirdo
 
 A weird AI to control creeps
+
+## Status 
+At the moment... Hello World!
 
 ## Codestyle
 
