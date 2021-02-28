@@ -1,0 +1,9 @@
+{
+  "name": "weirdo",
+  "version": "1.0.0",
+  "description": "A weird AI which controls creeps",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darvan42"
+}
