@@ -5,5 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Darvan42"
+  "author": "Darvan42",
+  "devDependencies": {
+    "grunt": "^1.3.0"
+  },
+  "dependencies": {
+    "grunt-cli": "^1.3.2"
+  }
 }

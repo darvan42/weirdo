@@ -1,2 +1,3 @@
 .idea/*
 /screeps_credentials.json
+/node_modules/
