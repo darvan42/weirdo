@@ -1,5 +1,7 @@
 'use strict'
 
+const constants = require('./constants')
+
 /**
  * @typedef {StructureSpawn}
  */
@@ -11,7 +13,7 @@ class ExtendsSpawn {
     if (!this.spawning) {
       const creeps = this.room.find(FIND_MY_CREEPS)
       if (creeps.length === 0) {
-        this.spawnNamedCreep([WORK, CARRY, MOVE], { memory: { role: 'Starter' } })
+        this.spawnNamedCreep([WORK, CARRY, MOVE], { memory: { role: constants.roles.STARTER } })
       }
     }
   }
