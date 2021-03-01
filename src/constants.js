@@ -3,6 +3,7 @@ module.exports = {
     STARTER: 'starter'
   },
   memory: {
-    ROLE: 'role'
+    ROLE: 'role',
+    TARGET: 'target'
   }
 }

@@ -1,5 +1,6 @@
 'use strict'
 
+require('./ExtendsCreep')
 function extendClass (base, extra) {
   const descs = Object.getOwnPropertyDescriptors(extra.prototype)
   delete descs.constructor
