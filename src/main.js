@@ -1,6 +1,6 @@
 'use strict'
 
-require('./extensions')
+require('./extends-all')
 module.exports.loop = function () {
   for (const name in Game.spawns) {
     Game.spawns[name].tick()

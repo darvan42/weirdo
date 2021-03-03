@@ -1,3 +1,5 @@
+'use strict'
+
 const starter = require('./role_starter')
 const constants = require('./constants')
 
