@@ -1,3 +1,5 @@
+'use strict'
+
 function getTargetFromIDOrNull (targetID) {
   return Game.getObjectById(targetID) || null
 }

@@ -1,3 +1,5 @@
+'use strict'
+
 const MEM_KEY = '_fill'
 
 const assembleAction = require('./action-assemble')

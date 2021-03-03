@@ -1,3 +1,5 @@
+'use strict'
+
 const MEMORY_KEY = '_mine'
 const assembleAction = require('./action-assemble')
 

@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = starterGetNextAction
 
 const getActionFrom = require('./task-combine')
