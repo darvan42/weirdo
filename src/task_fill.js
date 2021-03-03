@@ -10,7 +10,7 @@ module.exports = function (structureType, creep) {
   const customMemoryKey = MEM_KEY.concat(structureType)
   /** @param structure {Structure} */
   const filterFun = function (structure) {
-    return structure.structureType === structureType && structure?.store.getFreeCapacity() > 0
+    return structure.structureType === structureType && structure?.store.getFreeCapacity(RESOURCE_ENERGY) > 0
   }
 
   const newTargetOrNull = function () {
