@@ -17,6 +17,7 @@ function saveIDToMemory (creepName, targetKey, target) {
 function onNewTarget (creepName, targetKey, getNewTarget) {
   const target = getNewTarget()
   if (!target) {
+    deleteIDFromMemory(creepName, targetKey)
     return null
   } else {
     saveIDToMemory(creepName, targetKey, target)
@@ -24,22 +25,30 @@ function onNewTarget (creepName, targetKey, getNewTarget) {
   }
 }
 
-function getTarget (creepName, targetKey, getNewTarget) {
+function getTarget (creepName, targetKey, getNewTarget, isValidTarget) {
   const id = getTargetIDFromMemoryOrNull(creepName, targetKey)
   if (!id) {
     return onNewTarget(creepName, targetKey, getNewTarget)
   }
   const target = getTargetFromIDOrNull(id)
+
+  if (isValidTarget) {
+    if (isValidTarget(target)) {
+      return target
+    } else {
+      return onNewTarget(creepName, targetKey, getNewTarget)
+    }
+  }
+
   if (!target) {
-    deleteIDFromMemory(creepName, targetKey)
     return onNewTarget(creepName, targetKey, getNewTarget)
   } else {
     return target
   }
 }
 
-function actionAssemble (creepName, targetKey, newTarget, getAction) {
-  const target = getTarget(creepName, targetKey, newTarget)
+function actionAssemble (creepName, targetKey, newTarget, getAction, isValidTarget) {
+  const target = getTarget(creepName, targetKey, newTarget, isValidTarget)
   if (target) {
     return getAction(target)
   } else {

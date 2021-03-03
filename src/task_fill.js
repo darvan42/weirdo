@@ -9,12 +9,12 @@ const assembleAction = require('./action-assemble')
 module.exports = function (structureType, creep) {
   const customMemoryKey = MEM_KEY.concat(structureType)
   /** @param structure {Structure} */
-  const filterFun = function (structure) {
+  const isValidTarget = function (structure) {
     return structure.structureType === structureType && structure?.store.getFreeCapacity(RESOURCE_ENERGY) > 0
   }
 
   const newTargetOrNull = function () {
-    const structures = creep.room.find(FIND_STRUCTURES, { filter: filterFun })
+    const structures = creep.room.find(FIND_STRUCTURES, { filter: isValidTarget })
     if (structures.length > 0) {
       return creep.pos.findClosestByPath(structures)
     } else {
@@ -30,5 +30,5 @@ module.exports = function (structureType, creep) {
     }
   }
 
-  return assembleAction(creep.name, customMemoryKey, newTargetOrNull, getAction)
+  return assembleAction(creep.name, customMemoryKey, newTargetOrNull, getAction, isValidTarget)
 }
