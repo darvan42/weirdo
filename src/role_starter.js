@@ -1,7 +1,7 @@
 module.exports = starterGetNextAction
 
-const getActionFrom = require('./action-compose')
-const actionMine = require('./action_mine')
+const getActionFrom = require('./task-combine')
+const actionMine = require('./task_mine')
 
 function starterGetNextAction (creep) {
   if (creep.store.getFreeCapacity() > 0) {
