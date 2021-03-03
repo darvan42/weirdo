@@ -1,5 +1,5 @@
 const MEMORY_KEY = '_mine'
-const assembleAction = require('./assemble-action')
+const assembleAction = require('./action-assemble')
 
 function getActionOrNull (creep) {
   const newTargetOrNull = function () {

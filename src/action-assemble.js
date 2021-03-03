@@ -38,7 +38,7 @@ function getTarget (creepName, targetKey, getNewTarget) {
   }
 }
 
-function assembleAction (creepName, targetKey, newTarget, getAction) {
+function actionAssemble (creepName, targetKey, newTarget, getAction) {
   const target = getTarget(creepName, targetKey, newTarget)
   if (target) {
     return getAction(target)
@@ -47,4 +47,4 @@ function assembleAction (creepName, targetKey, newTarget, getAction) {
   }
 }
 
-module.exports = assembleAction
+module.exports = actionAssemble
