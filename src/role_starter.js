@@ -2,15 +2,15 @@
 
 module.exports = starterGetNextAction
 
-const getActionFrom = require('./task-combine')
-const actionMine = require('./task_mine')
+const combineTasks = require('./task-combine')
+const taskMine = require('./task_mine')
 const taskFill = require('./task_fill')
 
 function starterGetNextAction (creep) {
   if (creep.store.getFreeCapacity() > 0) {
-    return getActionFrom([actionMine], creep)
+    return combineTasks([taskMine], creep)
   } else {
-    const curryFill = creep1 => taskFill(STRUCTURE_SPAWN, creep1)
-    return getActionFrom([curryFill], creep)
+    const fillSpawn = creep => taskFill(STRUCTURE_SPAWN, creep)
+    return combineTasks([fillSpawn], creep)
   }
 }
