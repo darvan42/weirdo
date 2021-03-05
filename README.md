@@ -45,7 +45,7 @@ address.
 This project uses external libraries and assets that are under their own
 licenses.
 
-It is not a goal of this project to infringe someones copyright.
+It is not a goal of this project to infringe someone's copyright.
 Please feel free to reach out, if you feel that this project
 infringes your copyright.
 ## Codestyle
