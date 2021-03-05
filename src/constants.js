@@ -25,7 +25,8 @@
 module.exports = {
   roles: {
     STARTER: 'starter',
-    UPDGRADER: 'upgrader'
+    UPDGRADER: 'upgrader',
+    BUILDER: 'builder'
   },
   memory: {
     ROLE: 'role'
