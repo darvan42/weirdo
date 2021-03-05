@@ -35,6 +35,19 @@ targets and the caching of the current target.
 An action is command which a creep can execute in one tick.
 For example `creep.moveTo()` or `creep.harvest()`.
 
+## License
+
+This project is licensed under the EUPL 1.2 or later. You can find 
+a copy of the license in the license folder or under 
+[this](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12) 
+address.
+
+This project uses external libraries and assets that are under their own
+licenses.
+
+It is not a goal of this project to infringe someones copyright.
+Please feel free to reach out, if you feel that this project
+infringes your copyright.
 ## Codestyle
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
