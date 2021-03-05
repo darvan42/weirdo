@@ -22,7 +22,7 @@
 
 'use strict'
 
-module.exports = function composeAction (actionGetterList, creep) {
+module.exports = function (actionGetterList, creep) {
   for (const actionGetter of actionGetterList) {
     const action = actionGetter(creep)
     if (action) {
