@@ -38,7 +38,7 @@ For example `creep.moveTo()` or `creep.harvest()`.
 ## License
 
 This project is licensed under the EUPL 1.2 or later. You can find 
-a copy of the license in the license folder or under 
+a copy of the license in the [license](./LICENSE) folder or under 
 [this](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12) 
 address.
 
