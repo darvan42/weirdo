@@ -17,5 +17,9 @@ StructureSpawn.prototype.tick = function () {
       this.spawnNamedCreep([WORK, CARRY, MOVE],
         { memory: { [constants.memory.ROLE]: constants.roles.STARTER } })
     }
+    if (creeps.length === 1) {
+      this.spawnNamedCreep([WORK, CARRY, MOVE, MOVE],
+        { memory: { [constants.memory.ROLE]: constants.roles.UPDGRADER } })
+    }
   }
 }
