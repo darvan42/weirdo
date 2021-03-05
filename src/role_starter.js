@@ -26,7 +26,7 @@ module.exports = starterGetNextAction
 
 const combineTasks = require('./task-combine')
 const taskMine = require('./task_mine')
-const taskFill = require('./task_fill')
+const taskFill = require('./task_fill_structure')
 
 function starterGetNextAction (creep) {
   if (creep.store.getFreeCapacity() > 0) {
