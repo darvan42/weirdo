@@ -36,7 +36,7 @@ StructureSpawn.prototype.tick = function () {
   if (!this.spawning) {
     const creeps = this.room.find(FIND_MY_CREEPS)
     if (creeps.length === 0) {
-      this.spawnNamedCreep([WORK, CARRY, MOVE],
+      this.spawnNamedCreep([WORK, CARRY, MOVE, MOVE],
         { memory: { [constants.memory.ROLE]: constants.roles.STARTER } })
     }
     if (creeps.length === 1) {
