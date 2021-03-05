@@ -25,6 +25,7 @@
 const starter = require('./role_starter')
 const upgrader = require('./role_upgrader')
 const constants = require('./constants')
+const transporter = require('./role_transporter')
 
 Creep.prototype.tick = function () {
   const role = this.memory[constants.memory.ROLE]
@@ -35,6 +36,9 @@ Creep.prototype.tick = function () {
       break
     case constants.roles.UPDGRADER:
       action = upgrader(this)
+      break
+    case constants.roles.TRANSPORTER:
+      action = transporter(this)
       break
     default:
       this.say('I\'m bored')

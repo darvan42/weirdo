@@ -19,17 +19,14 @@
  *  See the Licence for the specific language governing
  * permissions and limitations under the Licence.
  */
-
 'use strict'
 
-module.exports = {
-  roles: {
-    STARTER: 'starter',
-    UPDGRADER: 'upgrader',
-    BUILDER: 'builder',
-    TRANSPORTER: 'transporter'
-  },
-  memory: {
-    ROLE: 'role'
+const pickupTask = require('./task_pickup')
+const distributeTask = require('./task_distribute')
+module.exports = function (creep) {
+  if (creep.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    return pickupTask(RESOURCE_ENERGY, creep)
+  } else {
+    return distributeTask(creep)
   }
 }
