@@ -27,7 +27,8 @@ module.exports = {
     STARTER: 'starter',
     UPDGRADER: 'upgrader',
     BUILDER: 'builder',
-    TRANSPORTER: 'transporter'
+    TRANSPORTER: 'transporter',
+    MINER: 'miner'
   },
   memory: {
     ROLE: 'role'
