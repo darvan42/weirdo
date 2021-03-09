@@ -22,6 +22,7 @@
 
 'use strict'
 
+const headHunterLvl1 = require('./headHunter_lvl-1')
 const constants = require('./constants')
 StructureSpawn.prototype.spawnNamedCreep = function (body, opts) {
   const name = `John${Game.time}`
@@ -38,10 +39,22 @@ StructureSpawn.prototype.tick = function () {
     if (creeps.length === 0) {
       this.spawnNamedCreep([WORK, CARRY, MOVE, MOVE],
         { memory: { [constants.memory.ROLE]: constants.roles.STARTER } })
-    }
-    if (creeps.length === 1) {
-      this.spawnNamedCreep([WORK, CARRY, MOVE, MOVE],
-        { memory: { [constants.memory.ROLE]: constants.roles.UPDGRADER } })
+    } else {
+      let creepToSpawn
+      switch (this.room.controller.level) {
+        case 1:
+          creepToSpawn = headHunterLvl1(creeps)
+          break
+        default:
+          console.log('Kein Headhunter verfügbar!')
+      }
+      if (creepToSpawn) {
+        if (creepToSpawn.name) {
+          this.spawnCreep(creepToSpawn.body, creepToSpawn.name, creepToSpawn.opts)
+        } else {
+          this.spawnNamedCreep(creepToSpawn.body, creepToSpawn.opts)
+        }
+      }
     }
   }
 }
