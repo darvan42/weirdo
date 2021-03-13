@@ -50,5 +50,5 @@ module.exports = function (resourceType, creep) {
       return () => creep.moveTo(target)
     }
   }
-  assembleAction(creep.name, MEM_KEY, getNewTargetOrNull, getAction, isValidTarget)
+  return assembleAction(creep.name, MEM_KEY, getNewTargetOrNull, getAction, isValidTarget)
 }
