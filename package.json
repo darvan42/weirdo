@@ -4,19 +4,17 @@
   "description": "A weird AI which controls creeps",
   "scripts": {
     "test": "standard",
-    "fix": "standard --fix"
+    "fix": "standard --fix",
+    "compile": "rollup -c"
   },
   "author": "Darvan42",
   "devDependencies": {
-    "@types/grunt": "^0.4.25",
+    "@rollup/plugin-typescript": "^8.2.5",
     "@types/screeps": "^3.2.1",
     "eslint-plugin-screeps": "^2.1.0",
-    "grunt": "^1.3.0",
-    "grunt-screeps": "^1.5.0",
-    "standard": "^16.0.3"
-  },
-  "dependencies": {
-    "grunt-cli": "^1.3.2"
+    "rollup": "^2.56.3",
+    "standard": "^16.0.3",
+    "typescript": "^4.4.2"
   },
   "standard": {
     "plugins": [
