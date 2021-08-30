@@ -10,18 +10,15 @@
   "author": "Darvan42",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.5",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
     "@types/screeps": "^3.2.1",
+    "chai": "^4.3.4",
     "eslint-plugin-screeps": "^2.1.0",
+    "mocha": "^9.1.1",
     "rollup": "^2.56.3",
-    "standard": "^16.0.3",
+    "ts-node": "^10.2.1",
+    "ts-standard": "^10.0.0",
     "typescript": "^4.4.2"
-  },
-  "standard": {
-    "plugins": [
-      "screeps"
-    ],
-    "env": {
-      "screeps/screeps": true
-    }
   }
 }
