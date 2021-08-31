@@ -1,4 +1,5 @@
 import starter from './role/starter'
+import upgrader from './role/upgrader'
 
 export function getRoleFromName (name: string): string {
   name = name.replace(/\d/g, '')
@@ -9,6 +10,8 @@ export function getFunctionForRole (role: string) {
   switch (role) {
     case 'starter':
       return starter
+    case 'upgrader':
+      return upgrader
     default:
       return null
   }
