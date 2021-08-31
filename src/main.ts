@@ -12,7 +12,11 @@ export function loop () {
     spawnTick(Game.spawns[spawnName])
   }
   for (const creepName in Game.creeps) {
-    creepTick(Game.creeps[creepName])
+    try {
+      creepTick(Game.creeps[creepName])
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   // Automatically delete memory of missing creeps
