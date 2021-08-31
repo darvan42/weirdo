@@ -1,5 +1,6 @@
 import starter from './role/starter'
 import upgrader from './role/upgrader'
+import miner from './role/miner'
 
 export function getRoleFromName (name: string): string {
   name = name.replace(/\d/g, '')
@@ -12,6 +13,8 @@ export function getFunctionForRole (role: string) {
       return starter
     case 'upgrader':
       return upgrader
+    case 'miner':
+      return miner
     default:
       return null
   }
