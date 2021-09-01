@@ -26,4 +26,9 @@ export function loop () {
       delete Memory.creeps[name]
     }
   }
+
+  // Generate pixel if bucket is full
+  if (Game.cpu.bucket >= 10000) {
+    Game.cpu.generatePixel()
+  }
 }
