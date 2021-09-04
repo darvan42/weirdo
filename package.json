@@ -12,6 +12,7 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.5",
     "@types/chai": "^4.2.21",
+    "@types/lodash": "^3.10.1",
     "@types/mocha": "^9.0.0",
     "@types/screeps": "^3.2.1",
     "chai": "^4.3.4",
