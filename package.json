@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A weird AI which controls creeps",
   "scripts": {
-    "test": "standard",
-    "fix": "standard --fix",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
     "compile": "rollup -c",
     "deploy": "rollup -c --environment DEST:main"
   },
