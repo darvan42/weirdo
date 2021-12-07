@@ -9,9 +9,9 @@
     "sourceMap": true,
     "strict": true,
     "experimentalDecorators": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false
+    "allowUnreachableCode": false,
   },
   "exclude": [
     "node_modules"
