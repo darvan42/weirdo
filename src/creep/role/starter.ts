@@ -1,4 +1,5 @@
 import goGetEnergy from '../task/goGetEnergy'
+import { generateName } from '../role'
 
 export const ROLE = 'starter'
 
@@ -11,4 +12,13 @@ export default function (creep: Creep) {
       creep.moveTo(target)
     }
   }
+}
+
+export function areStarterNeeded (room: Room): boolean {
+  const creeps = room.find(FIND_MY_CREEPS)
+  return creeps.length === 0
+}
+
+export function spawnStarter (spawn: StructureSpawn) {
+  return spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLE))
 }
