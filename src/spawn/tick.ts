@@ -17,12 +17,12 @@ export default function tick (spawn: StructureSpawn) {
       numberNeeded: getNumberCarryNeeded(room)
     },
     {
-      spawnFunction: spawnMiner,
-      numberNeeded: getNumberMinerNeeded(room)
-    },
-    {
       spawnFunction: spawnUpgrader,
       numberNeeded: getNumberUpgraderNeeded(room)
+    },
+    {
+      spawnFunction: spawnMiner,
+      numberNeeded: getNumberMinerNeeded(room)
     }
   ]
   const mostNeeded = functionNeededPairs.reduce((prev, curr) => {
