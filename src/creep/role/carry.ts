@@ -5,10 +5,10 @@ import goDistributeEnergy from '../task/goDistributeEnergy'
 export const ROLENAME = 'carry'
 
 export function eachTick (creep: Creep) {
-  if (creep.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
-    goGetEnergy(creep)
-  } else {
+  if (creep.store.getUsedCapacity(RESOURCE_ENERGY) >= 10) {
     goDistributeEnergy(creep)
+  } else {
+    goGetEnergy(creep)
   }
 }
 
@@ -20,4 +20,9 @@ export function areCarryNeeded (room: Room) {
 export function spawnCarry (spawn: StructureSpawn) {
   // TODO optimize body
   spawn.spawnCreep([CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], generateName(ROLENAME))
+}
+
+export function getNumberCarryNeeded (room: Room): number {
+  const carries = getRoleMembersInRoom(room, ROLENAME)
+  return 2 - carries.length
 }

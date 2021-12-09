@@ -1,15 +1,34 @@
 import { areStarterNeeded, spawnStarter } from '../creep/role/starter'
-import { areMinerNeeded, spawnMiner } from '../creep/role/miner'
-import { areUpgraderNeeded, spawnUpgrader } from '../creep/role/upgrader'
+import { getNumberMinerNeeded, spawnMiner } from '../creep/role/miner'
+import { getNumberUpgraderNeeded, spawnUpgrader } from '../creep/role/upgrader'
+import { getNumberCarryNeeded, spawnCarry } from '../creep/role/carry'
 
 export default function tick (spawn: StructureSpawn) {
   if (spawn.spawning != null) return
   if (spawn.room.energyAvailable < 250) return
   if (areStarterNeeded(spawn.room)) {
     spawnStarter(spawn)
-  } else if (areMinerNeeded(spawn.room)) {
-    spawnMiner(spawn)
-  } else if (areUpgraderNeeded(spawn.room)) {
-    spawnUpgrader(spawn)
+    return
+  }
+  const room = spawn.room
+  const functionNeededPairs = [
+    {
+      spawnFunction: spawnCarry,
+      numberNeeded: getNumberCarryNeeded(room)
+    },
+    {
+      spawnFunction: spawnMiner,
+      numberNeeded: getNumberMinerNeeded(room)
+    },
+    {
+      spawnFunction: spawnUpgrader,
+      numberNeeded: getNumberUpgraderNeeded(room)
+    }
+  ]
+  const mostNeeded = functionNeededPairs.reduce((prev, curr) => {
+    return (prev.numberNeeded >= curr.numberNeeded) ? prev : curr
+  })
+  if (mostNeeded.numberNeeded > 0) {
+    mostNeeded.spawnFunction(spawn)
   }
 }

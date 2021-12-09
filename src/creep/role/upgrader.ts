@@ -30,3 +30,8 @@ export function spawnUpgrader (spawn: StructureSpawn) {
   // TODO optimize body parts
   spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLENAME))
 }
+
+export function getNumberUpgraderNeeded (room: Room): number {
+  const upgraders = getRoleMembersInRoom(room, ROLENAME)
+  return 3 - upgraders.length
+}

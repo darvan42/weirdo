@@ -1,5 +1,5 @@
 import goHarvestSource from '../task/goHarvestSource'
-import { generateName } from './utils'
+import { generateName, getRoleMembersInRoom } from './utils'
 
 export const ROLENAME = 'miner'
 
@@ -48,4 +48,10 @@ function getWorkpartsPerSource (source: Source) {
     if (creep.memory.mineTarget === source.id) workparts += creep.getActiveBodyparts(WORK)
   })
   return workparts
+}
+
+export function getNumberMinerNeeded (room: Room) {
+  // TODO implement real logic
+  const miners = getRoleMembersInRoom(room, ROLENAME)
+  return 6 - miners.length
 }
