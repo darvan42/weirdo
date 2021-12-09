@@ -1,5 +1,5 @@
 import goGetEnergy from '../task/goGetEnergy'
-import { generateName, getRoleMembersInRoom } from '../role'
+import { generateName, getRoleMembersInRoom } from './utils'
 
 export const ROLE = 'upgrader'
 

@@ -1,4 +1,5 @@
-import { getFunctionForRole, getRoleFromName } from './role'
+import { getFunctionForRole } from './role'
+import { getRoleFromName } from './role/utils'
 
 export default function tick (creep: Creep) {
   const role = getRoleFromName(creep.name)

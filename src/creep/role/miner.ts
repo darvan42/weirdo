@@ -1,5 +1,5 @@
 import goHarvestSource from '../task/goHarvestSource'
-import { generateName } from '../role'
+import { generateName } from './utils'
 
 export const ROLE = 'miner'
 export default function (creep: Creep) {

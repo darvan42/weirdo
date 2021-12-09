@@ -1,5 +1,5 @@
 import goGetEnergy from '../task/goGetEnergy'
-import { generateName } from '../role'
+import { generateName } from './utils'
 
 export const ROLE = 'starter'
 

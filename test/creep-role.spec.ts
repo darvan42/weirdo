@@ -1,11 +1,10 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-
-import * as creepRoleUtil from '../src/creep/role'
+import { getRoleFromName } from '../src/creep/role/utils'
 
 describe('creep/role', function () {
   describe('getRolefromName', function () {
-    const getRoleName = creepRoleUtil.getRoleFromName
+    const getRoleName = getRoleFromName
     it('should be a function', function () {
       expect(getRoleName).to.be.a('function')
     })
