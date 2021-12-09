@@ -1,4 +1,4 @@
-export default function (creep: Creep, source?: Source) {
+export default function (creep: Creep, source?: Source | null) {
   let target = source
   if (target == null) {
     target = creep.pos.findClosestByPath(FIND_SOURCES) as Source
