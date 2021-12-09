@@ -4,6 +4,7 @@ import creepTick from './creep/tick'
 declare global {
   interface CreepMemory {
     upgrading?: boolean
+    mine_target?: Id<Source>
   }
 }
 
