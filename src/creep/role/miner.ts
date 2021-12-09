@@ -1,8 +1,9 @@
 import goHarvestSource from '../task/goHarvestSource'
 import { generateName } from './utils'
 
-export const ROLE = 'miner'
-export default function (creep: Creep) {
+export const ROLENAME = 'miner'
+
+export function eachTick (creep: Creep) {
   const sourceID = creep.memory.mineTarget
   if (sourceID != null) {
     goHarvestSource(creep, Game.getObjectById(sourceID))
@@ -20,7 +21,7 @@ export function areMinerNeeded (room: Room) {
 export function spawnMiner (spawn: StructureSpawn) {
   // TODO optimise body part generation
   const mineTarget = getNewMiningTarget(spawn.room)
-  spawn.spawnCreep([WORK, WORK, MOVE, MOVE], generateName(ROLE), { memory: { mineTarget } })
+  spawn.spawnCreep([WORK, WORK, MOVE, MOVE], generateName(ROLENAME), { memory: { mineTarget } })
 }
 
 function getNewMiningTarget (room: Room) {

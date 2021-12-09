@@ -1,9 +1,9 @@
 import goGetEnergy from '../task/goGetEnergy'
 import { generateName } from './utils'
 
-export const ROLE = 'starter'
+export const ROLENAME = 'starter'
 
-export default function (creep: Creep) {
+export function eachTick (creep: Creep) {
   if (creep.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
     goGetEnergy(creep)
   } else {
@@ -20,5 +20,5 @@ export function areStarterNeeded (room: Room): boolean {
 }
 
 export function spawnStarter (spawn: StructureSpawn) {
-  return spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLE))
+  return spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLENAME))
 }

@@ -1,9 +1,9 @@
 import goGetEnergy from '../task/goGetEnergy'
 import { generateName, getRoleMembersInRoom } from './utils'
 
-export const ROLE = 'upgrader'
+export const ROLENAME = 'upgrader'
 
-export default function (creep: Creep) {
+export function eachTick (creep: Creep) {
   if (creep.memory.upgrading === true) {
     if (creep.store.getUsedCapacity(RESOURCE_ENERGY) > 0) {
       const controller = creep.room.controller as StructureController
@@ -23,10 +23,10 @@ export default function (creep: Creep) {
 }
 
 export function areUpgraderNeeded (room: Room): boolean {
-  return getRoleMembersInRoom(room, ROLE).length < 3
+  return getRoleMembersInRoom(room, ROLENAME).length < 3
 }
 
 export function spawnUpgrader (spawn: StructureSpawn) {
   // TODO optimize body parts
-  spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLE))
+  spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLENAME))
 }
