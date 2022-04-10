@@ -6,6 +6,10 @@ declare global {
     upgrading?: boolean
     mineTarget?: Id<Source>
   }
+
+  interface RoomMemory {
+    miningPlaces?: number
+  }
 }
 
 export function loop () {

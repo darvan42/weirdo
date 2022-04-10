@@ -1,5 +1,6 @@
 import goHarvestSource from '../task/goHarvestSource'
 import { generateName, getRoleMembersInRoom } from './utils'
+import { getMiningPlaces } from '../../room/mining'
 
 export const ROLENAME = 'miner'
 
@@ -51,7 +52,6 @@ function getWorkpartsPerSource (source: Source) {
 }
 
 export function getNumberMinerNeeded (room: Room) {
-  // TODO implement real logic
   const miners = getRoleMembersInRoom(room, ROLENAME)
-  return 6 - miners.length
+  return getMiningPlaces(room) - miners.length
 }
