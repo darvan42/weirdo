@@ -25,7 +25,7 @@ export function spawnMiner (spawn: StructureSpawn) {
   spawn.spawnCreep([WORK, WORK, MOVE, MOVE], generateName(ROLENAME), { memory: { mineTarget } })
 }
 
-function getNewMiningTarget (room: Room) {
+function getNewMiningTarget (room: Room): Id<Source> {
   const sources = room.find(FIND_SOURCES)
   const sourceIDWorkPair = {
     sourceID: sources[0].id,
