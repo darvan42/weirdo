@@ -6,7 +6,9 @@
     "lint": "standard",
     "lint-fix": "standard --fix",
     "compile": "rollup -c",
-    "deploy": "rollup -c --environment DEST:main"
+    "deploy": "rollup -c --environment DEST:main",
+    "test": "npm run test-unit",
+    "test-unit": "mocha test/unit/**/*.ts"
   },
   "author": "Darvan42",
   "devDependencies": {

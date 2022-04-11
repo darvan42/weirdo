@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import { getRoleFromName } from '../src/creep/role/utils'
+import { getRoleFromName } from '../../src/creep/role/utils'
 
 describe('creep/role', function () {
   describe('getRolefromName', function () {
