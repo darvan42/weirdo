@@ -5,6 +5,7 @@ declare global {
   interface CreepMemory {
     upgrading?: boolean
     mineTarget?: Id<Source>
+    home?: string
   }
 
   interface RoomMemory {
