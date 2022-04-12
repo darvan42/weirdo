@@ -6,7 +6,7 @@ import { deserializeRoomPosition, serializeRoomPosition } from '../../room/utils
 export const ROLENAME = 'carry'
 
 export function eachTick (carry: Creep) {
-  if (carry.store.getUsedCapacity(RESOURCE_ENERGY) >= 10) {
+  if (carry.store.getUsedCapacity(RESOURCE_ENERGY) > 0) {
     goDistributeEnergy(carry)
   } else {
     goGetEnergy(carry, getHome(carry))
