@@ -11,6 +11,9 @@
     "test-unit": "mocha test/unit/**/*.ts"
   },
   "author": "Darvan42",
+  "dependencies": {
+    "weirdo-architect": "file:./architect/pkg"
+  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/chai": "^4.2.22",
