@@ -5,8 +5,9 @@
   "scripts": {
     "lint": "standard",
     "lint-fix": "standard --fix",
-    "compile": "rollup -c",
-    "deploy": "rollup -c --environment DEST:main",
+    "pre-compile": "wasm-pack build --target nodejs ./architect && cp ./architect/pkg/weirdo_architect_bg.wasm ./dist/weirdo_architect_bg.wasm",
+    "compile": "npm run pre-compile && rollup -c",
+    "deploy": "npm run pre-compile && rollup -c --environment DEST:main",
     "test": "npm run test-unit",
     "test-unit": "mocha test/unit/**/*.ts"
   },
@@ -15,6 +16,9 @@
     "weirdo-architect": "file:./architect/pkg"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/chai": "^4.2.22",
     "@types/lodash": "^3.10.4",
