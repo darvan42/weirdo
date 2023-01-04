@@ -1,11 +1,13 @@
 import spawnTick from './spawn/tick'
 import creepTick from './creep/tick'
+import roomTick from './room/tick'
 
 declare global {
   interface CreepMemory {
     upgrading?: boolean
     mineTarget?: Id<Source>
     home?: string
+    building: boolean
   }
 
   interface RoomMemory {
@@ -23,6 +25,10 @@ export function loop () {
     } catch (e) {
       console.log(e)
     }
+  }
+  // Every visible room
+  for (const roomName in Game.rooms) {
+    roomTick(Game.rooms[roomName])
   }
 
   // Automatically delete memory of missing creeps
