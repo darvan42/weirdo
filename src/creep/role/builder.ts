@@ -17,10 +17,9 @@ export function getNumberBuilderNeeded (room: Room): number {
   const builders = getRoleMembersInRoom(room, ROLENAME).length
 
   if (sites == 0) return 0
-  const sitesBuilderDiff = sites - builders
-  if (sitesBuilderDiff <= 0) return 0
-  if (sitesBuilderDiff >= 3) return 3 - builders
-  return sitesBuilderDiff
+  if (sites == 1) return 1 - builders <= 0 ? 0 : 1 - builders
+  if (sites == 2) return 2 - builders <= 0 ? 0 : 2 - builders
+  return 3 - builders <= 0 ? 0 : 3 - builders
 }
 
 export function spawnBuilder (spawn: StructureSpawn) {
