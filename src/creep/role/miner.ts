@@ -20,9 +20,12 @@ export function areMinerNeeded (room: Room) {
 }
 
 export function spawnMiner (spawn: StructureSpawn) {
-  // TODO optimise body part generation
+  const maxEnergy = spawn.room.energyCapacityAvailable
+  const workParts = Math.floor(maxEnergy / 150) >= 5 ? 5 : Math.floor(maxEnergy / 150)
+  const work = new Array(workParts).fill(WORK)
+  const move = new Array(workParts).fill(MOVE)
   const mineTarget = getNewMiningTarget(spawn.room)
-  spawn.spawnCreep([WORK, WORK, MOVE, MOVE], generateName(ROLENAME), { memory: { mineTarget } })
+  spawn.spawnCreep(work.concat(move), generateName(ROLENAME), { memory: { mineTarget } })
 }
 
 function getNewMiningTarget (room: Room): Id<Source> {
