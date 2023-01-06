@@ -19,7 +19,7 @@ export function getNumberBuilderNeeded (room: Room): number {
   if (sites == 0) return 0
   const sitesBuilderDiff = sites - builders
   if (sitesBuilderDiff <= 0) return 0
-  if (sitesBuilderDiff >= 3) return 3
+  if (sitesBuilderDiff >= 3) return 3 - builders
   return sitesBuilderDiff
 }
 
