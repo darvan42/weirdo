@@ -7,7 +7,7 @@ declare global {
     upgrading?: boolean
     mineTarget?: Id<Source>
     home?: string
-    building: boolean
+    building?: boolean
   }
 
   interface RoomMemory {
