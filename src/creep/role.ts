@@ -3,6 +3,7 @@ import * as miner from './role/miner'
 import * as upgrader from './role/upgrader'
 import * as carry from './role/carry'
 import * as builder from './role/builder'
+import * as defender from './role/defender'
 
 interface Role {
   name: string
@@ -25,6 +26,9 @@ export function getFunctionForRoleName (roleName: string) {
   }, {
     name: builder.ROLENAME,
     tick: builder.eachTick
+  }, {
+    name: defender.ROLENAME,
+    tick: defender.eachTick
   }
   ]
   for (const role of roles) {

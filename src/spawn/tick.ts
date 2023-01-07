@@ -3,6 +3,7 @@ import { getNumberMinerNeeded, spawnMiner } from '../creep/role/miner'
 import { getNumberUpgraderNeeded, spawnUpgrader } from '../creep/role/upgrader'
 import { getNumberCarryNeeded, spawnCarry } from '../creep/role/carry'
 import { getNumberBuilderNeeded, spawnBuilder } from '../creep/role/builder'
+import { spawnDefender } from '../creep/role/defender'
 
 export default function tick (spawn: StructureSpawn) {
   if (spawn.spawning != null) return
@@ -11,6 +12,11 @@ export default function tick (spawn: StructureSpawn) {
     spawnStarter(spawn)
     return
   }
+  // Spawn defender if there are intruders
+  if (spawn.room.find(FIND_HOSTILE_CREEPS).length > 0) {
+    spawnDefender(spawn)
+  }
+
   const room = spawn.room
   const functionNeededPairs = [
     {
