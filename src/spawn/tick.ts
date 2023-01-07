@@ -27,20 +27,16 @@ export default function tick (spawn: StructureSpawn) {
     {
       spawnFunction: spawnCarry,
       numberNeeded: getNumberCarryNeeded(room)
-    },
-    {
-      spawnFunction: spawnUpgrader,
-      numberNeeded: getNumberUpgraderNeeded(room)
-    },
-    {
+    }, {
       spawnFunction: spawnMiner,
       numberNeeded: getNumberMinerNeeded(room)
-    },
-    {
+    }, {
+      spawnFunction: spawnUpgrader,
+      numberNeeded: getNumberUpgraderNeeded(room)
+    }, {
       spawnFunction: spawnBuilder,
       numberNeeded: getNumberBuilderNeeded(room)
-    }
-  ]
+    }]
   const mostNeeded = functionNeededPairs.reduce((prev, curr) => {
     return (prev.numberNeeded >= curr.numberNeeded) ? prev : curr
   })
