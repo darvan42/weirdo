@@ -1,6 +1,7 @@
 import spawnTick from './spawn/tick'
 import creepTick from './creep/tick'
 import roomTick from './room/tick'
+import towerTick from './tower/tick'
 
 declare global {
   interface CreepMemory {
@@ -28,7 +29,16 @@ export function loop () {
   }
   // Every visible room
   for (const roomName in Game.rooms) {
-    roomTick(Game.rooms[roomName])
+    const room = Game.rooms[roomName]
+    // find towers and execute tick
+    if (room.controller != null) {
+      const towers = room.find(FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } })
+      for (const tower of towers) {
+        towerTick(tower as StructureTower)
+      }
+    }
+    // execute room tick
+    roomTick(room)
   }
 
   // Automatically delete memory of missing creeps
