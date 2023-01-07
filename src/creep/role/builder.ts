@@ -23,6 +23,11 @@ export function getNumberBuilderNeeded (room: Room): number {
 }
 
 export function spawnBuilder (spawn: StructureSpawn) {
-  // TODO optimize body
-  spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], generateName(ROLENAME))
+  const maxEnergy = spawn.room.energyCapacityAvailable
+  const numParts = Math.floor(maxEnergy / 250)
+  const work = new Array(numParts).fill(WORK)
+  const carry = new Array(numParts).fill(CARRY)
+  const move = new Array(numParts * 2).fill(MOVE)
+  const body = work.concat(carry).concat(move)
+  spawn.spawnCreep(body, generateName(ROLENAME))
 }
