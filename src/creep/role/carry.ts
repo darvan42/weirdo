@@ -47,11 +47,14 @@ export function areCarryNeeded (room: Room) {
 }
 
 export function spawnCarry (spawn: StructureSpawn) {
-  // TODO optimize body
-  spawn.spawnCreep([CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], generateName(ROLENAME))
+  const numParts = Math.floor(spawn.room.energyCapacityAvailable / 100)
+  const carry = new Array(numParts).fill(CARRY)
+  const move = new Array(numParts).fill(MOVE)
+  const body = carry.concat(move)
+  spawn.spawnCreep(body, generateName(ROLENAME))
 }
 
 export function getNumberCarryNeeded (room: Room): number {
   const carries = getRoleMembersInRoom(room, ROLENAME)
-  return 2 - carries.length
+  return 4 - carries.length
 }
