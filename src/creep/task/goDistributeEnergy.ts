@@ -15,6 +15,15 @@ export default function (creep: Creep) {
     return
   }
 
+  // looking for towers which need filling
+  let towers = creep.room.find(FIND_MY_STRUCTURES, { filter: { structureType: STRUCTURE_TOWER } }) as Array<StructureTower>
+  towers = towers.filter(tower => tower.store.getFreeCapacity(RESOURCE_ENERGY) > 0)
+  const target = creep.pos.findClosestByPath(towers)
+  if (target != null) {
+    if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) creep.moveTo(target)
+    return
+  }
+
   // looking for creeps which need filling
   const upgraders = getRoleMembersInRoom(creep.room, upgrader)
   const builders = getRoleMembersInRoom(creep.room, builder)
