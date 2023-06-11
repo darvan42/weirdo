@@ -18,9 +18,8 @@ export function areMinerNeeded (room: Room) {
   return sources.some(source => getWorkpartsPerSource(source) < 5)
 }
 
-export function spawnMiner (spawn: StructureSpawn) {
-  const maxEnergy = spawn.room.energyCapacityAvailable
-  const workParts = Math.floor(maxEnergy / 150) >= 5 ? 5 : Math.floor(maxEnergy / 150)
+export function spawnMiner (spawn: StructureSpawn, energy: number) {
+  const workParts = Math.floor(energy / 150) >= 5 ? 5 : Math.floor(energy / 150)
   const work = new Array(workParts).fill(WORK)
   const move = new Array(workParts).fill(MOVE)
   const mineTarget = getNewMiningTarget(spawn.room)

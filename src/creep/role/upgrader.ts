@@ -1,5 +1,5 @@
 import goGetEnergy from '../task/goGetEnergy'
-import { generateName, getRoleMembersInRoom } from './utils'
+import { calcWCMM, generateName, getRoleMembersInRoom } from './utils'
 
 export const ROLENAME = 'upgrader'
 
@@ -26,14 +26,8 @@ export function areUpgraderNeeded (room: Room): boolean {
   return getRoleMembersInRoom(room, ROLENAME).length < 3
 }
 
-export function spawnUpgrader (spawn: StructureSpawn) {
-  const maxEnergy = spawn.room.energyCapacityAvailable
-  const numParts = Math.floor(maxEnergy / 250)
-  const work = new Array(numParts).fill(WORK)
-  const carry = new Array(numParts).fill(CARRY)
-  const move = new Array(numParts * 2).fill(MOVE)
-  const body = work.concat(carry).concat(move)
-  spawn.spawnCreep(body, generateName(ROLENAME))
+export function spawnUpgrader (spawn: StructureSpawn, energy: number) {
+  spawn.spawnCreep(calcWCMM(energy), generateName(ROLENAME))
 }
 
 export function getNumberUpgraderNeeded (room: Room): number {

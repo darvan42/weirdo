@@ -1,6 +1,6 @@
 import goGetEnergy from '../task/goGetEnergy'
 import goBuildStructure from '../task/goBuildStructure'
-import { generateName, getRoleMembersInRoom } from './utils'
+import { calcWCMM, generateName, getRoleMembersInRoom } from './utils'
 
 export const ROLENAME = 'builder'
 
@@ -22,12 +22,6 @@ export function getNumberBuilderNeeded (room: Room): number {
   return 3 - builders <= 0 ? 0 : 3 - builders
 }
 
-export function spawnBuilder (spawn: StructureSpawn) {
-  const maxEnergy = spawn.room.energyCapacityAvailable
-  const numParts = Math.floor(maxEnergy / 250)
-  const work = new Array(numParts).fill(WORK)
-  const carry = new Array(numParts).fill(CARRY)
-  const move = new Array(numParts * 2).fill(MOVE)
-  const body = work.concat(carry).concat(move)
-  spawn.spawnCreep(body, generateName(ROLENAME))
+export function spawnBuilder (spawn: StructureSpawn, energy: number) {
+  spawn.spawnCreep(calcWCMM(energy), generateName(ROLENAME))
 }
