@@ -1,3 +1,9 @@
+/**
+ * Creates the rolename from an unique creepname
+ * through stripping the creation time at the end
+ * which is unique for each creep.
+ * @param name
+ */
 export function getRoleFromName (name: string): string {
   name = name.replace(/\d/g, '')
   return name.toLowerCase()
