@@ -47,7 +47,8 @@ export function areCarryNeeded (room: Room) {
 }
 
 export function spawnCarry (spawn: StructureSpawn, energy: number) {
-  const numParts = Math.floor(energy / 100)
+  const numberPossibleSeries = Math.floor(energy / 100)
+  const numParts = numberPossibleSeries >= 10 ? 10 : numberPossibleSeries
   const carry = new Array(numParts).fill(CARRY)
   const move = new Array(numParts).fill(MOVE)
   const body = carry.concat(move)
