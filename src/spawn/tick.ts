@@ -2,7 +2,7 @@ import { areStarterNeeded, spawnStarter } from '../creep/role/starter'
 import { getRoleMembersInRoom } from '../creep/role/utils'
 import { ROLENAME as MINER, spawnMiner } from '../creep/role/miner'
 import { ROLENAME as CARRY, spawnCarry } from '../creep/role/carry'
-import { ROLENAME as UPGRADER } from '../creep/role/upgrader'
+import { ROLENAME as UPGRADER, spawnUpgrader } from '../creep/role/upgrader'
 import { ROLENAME as BUILDER } from '../creep/role/builder'
 import { ROLENAME as STARTER } from '../creep/role/starter'
 
@@ -19,6 +19,7 @@ export default function tick (spawn: StructureSpawn) {
 
   if(spawn.room.find(FIND_MY_CREEPS).length <= 0) {
     spawnStarter(spawn)
+    return
   }
 
   if (miners.length <= 0) {
@@ -28,5 +29,11 @@ export default function tick (spawn: StructureSpawn) {
 
   if (carries.length <= 0) {
     spawnCarry(spawn, spawn.room.energyAvailable)
+    return
+  }
+
+  if (upgraders.length <=0) {
+    spawnUpgrader(spawn, spawn.room.energyCapacityAvailable)
+    return
   }
 }
