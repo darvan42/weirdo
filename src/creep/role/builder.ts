@@ -23,5 +23,5 @@ export function getNumberBuilderNeeded (room: Room): number {
 }
 
 export function spawnBuilder (spawn: StructureSpawn, energy: number) {
-  spawn.spawnCreep(calcWCMM(energy), generateName(ROLENAME))
+  spawn.spawnCreep(calcWCMM(energy, 5), generateName(ROLENAME))
 }
